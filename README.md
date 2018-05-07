@@ -1,2 +1,5 @@
 # hello-world
-Test
+
+Just text for example
+
+I'am learning Git
