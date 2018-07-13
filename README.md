@@ -1,5 +1,3 @@
-# hello-world
+# Source code for test
 
-Just text for example
-
-I'am learning Git
+I'am learning CI in Jenkins
