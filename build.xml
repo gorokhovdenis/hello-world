@@ -2,7 +2,7 @@
 <project name="sudoku" default="compile">
     <property file="props.properties"/>
     <taskdef resource="checkstyletask.properties" classpath="${checkstyle.jar.path}"/>
-    <target name="compile" depends="checkstyle">
+    <target name="compile">
         <javac destdir="./" debug="yes" encoding="UTF8" includeantruntime="false">
             <src path="./" />
         </javac>
