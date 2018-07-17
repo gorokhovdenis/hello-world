@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <project name="sudoku" default="compile">
+    <taskdef resource="checkstyletask.properties"  classpath="${lib.dir}/checkstyle-5.5-all.jar"/>
     <property file="props.properties"/>
-    <taskdef resource="checkstyletask.properties" classpath="${checkstyle.jar.path}"/>
-   <target name="compile" depends="checkstyle">
+    <target name="compile" depends="checkstyle">
         <javac destdir="." debug="yes" encoding="UTF8" includeantruntime="false">
             <src path="." />
         </javac>
     </target>
      <target name="checkstyle">
         <echo>Starting checkstyle</echo>
-        <checkstyle config="google_checks.xml" failOnViolation="false">
-            <fileset dir="." includes="**/*.java"/>
+        <checkstyleconfig="google_checks.xml" failOnViolation="false">
+            <fileset dir="./" includes="**/*.java"/>
             <formatter type="plain"/>
-            <formatter type="xml" toFile="checkstyle_errors.xml"/>
+            <formatter type="xml" toFile="checkstyle_report.xml"/>
         </checkstyle>
         <echo>Checkstyle finished</echo>
     </target>
