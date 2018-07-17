@@ -12,7 +12,7 @@
         <checkstyle config="./google_checks.xml" failOnViolation="false">
             <fileset dir="/home/" includes="**/*.java"/>
             <formatter type="plain"/>
-            <formatter type="xml" toFile="./checkstyle_errors.xml"/>
+            <formatter type="xml" toFile="checkstyle_errors.xml"/>
         </checkstyle>
         <echo>Checkstyle finished</echo>
     </target>
