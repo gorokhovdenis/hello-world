@@ -1,22 +1,4 @@
 <?xml version="1.0"?>
-<<<<<<< HEAD
-<project name="sudoku">
-    <property file="props.properties"/>
-    <taskdef resource="checkstyletask.properties" classpath="${checkstyle.jar.path}"/>
-    <target name="compile" depends="checkstyle">
-        <javac destdir="." debug="yes" encoding="UTF8" includeantruntime="false">
-            <src path="." />
-        </javac>
-    </target>
-    <target name="checkstyle">
-       <echo>Starting checkstyle</echo>
-       <checkstyle config="google_checks.xml" failOnViolation="false">
-            <fileset dir="." includes="**/*.java"/>
-            <formatter type="plain"/>
-            <formatter type="xml" toFile="checkstyle_errors.xml"/>
-       </checkstyle>
-       <echo>Checkstyle finished</echo>
-=======
 <project name="sudoku" default="compile" basedir=".">
      <!-- set global properties for this build -->
     <property name="src" location="src"/>
@@ -32,7 +14,6 @@
         description="compile the source">
         <!-- Compile the Java code from ${src} into ${build} -->
         <javac srcdir="${src}" destdir="${build}"/>
->>>>>>> f52c7d0cad70244aca0d7356a5a0ba13a0f0a792
     </target>
     <target name="dist" depends="compile"
         description="generate the distribution">
