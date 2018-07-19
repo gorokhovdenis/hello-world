@@ -10,10 +10,9 @@
       <!-- Create the build directory structure used by compile -->
       <mkdir dir="${build}"/>
     </target>
-    <target name="compile" depends="init"
-        description="compile the source">
+    <target name="compile" depends="init" description="compile the source">
         <!-- Compile the Java code from ${src} into ${build} -->
-        <javac srcdir="${src}" destdir="${build}"/>
+        <javac srcdir="${src}" destdir="${build}" encoding="UTF8" includeantruntime="false"/>
     </target>
     <target name="dist" depends="compile"
         description="generate the distribution">
