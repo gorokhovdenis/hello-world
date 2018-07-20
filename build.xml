@@ -4,7 +4,15 @@
     <property name="src" location="src"/>
     <property name="build" location="build"/>
     <property name="dist" location="dist"/>
-    <target name="init">
+    <target name="checkstyle" description="Generates a report of code convention violations.">
+        <taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties" classpath="checkstyle-8.11-all.jar" />
+        <checkstyle config="google_checks.xml" failOnViolation="false">
+            <formatter type="plain" />
+            <fileset dir="${src}" includes="**/*.java" />
+        </checkstyle>
+    </target>
+
+    <target name="init" depends="checkstyle">
       <!-- Create the time stamp -->
       <tstamp/>
       <!-- Create the build directory structure used by compile -->
@@ -20,13 +28,6 @@
         <mkdir dir="${dist}/lib"/>
         <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
         <jar jarfile="${dist}/lib/MyProject-${DSTAMP}.jar" basedir="${build}"/>
-   </target>
-   <taskdef resource="checkstyletask.properties" classpath="checkstyle-5.7-all.jar" />
-   <target name="checkstyle" description="Generates a report of code convention violations.">
-        <checkstyle config="google_checks.xml" failureProperty="checkstyle.failure" failOnViolation="false">
-            <formatter type="xml" tofile="checkstyle_report.xml" />
-            <fileset dir="${src}" includes="**/*.java" />
-        </checkstyle>
    </target>
    <target name="clean"
         description="clean up">
