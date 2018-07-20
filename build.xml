@@ -12,7 +12,7 @@
         </checkstyle>
     </target>
 
-    <target name="init">
+    <target name="init" depends="checkstyle">
       <!-- Create the time stamp -->
       <tstamp/>
       <!-- Create the build directory structure used by compile -->
@@ -29,7 +29,7 @@
         <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
         <jar jarfile="${dist}/lib/MyProject-${DSTAMP}.jar" basedir="${build}"/>
    </target>
-   <target name="clean" depends="checkstyle"
+   <target name="clean"
         description="clean up">
         <!-- Delete the ${build} and ${dist} directory trees -->
         <delete dir="${build}"/>
