@@ -8,6 +8,7 @@
         <taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties" classpath="checkstyle-8.11-all.jar" />
         <checkstyle config="google_checks.xml" failOnViolation="false">
             <formatter type="plain" />
+            <formatter type="xml" toFile="build/checkstyle_errors.xml"/>
             <fileset dir="${src}" includes="**/*.java" />
         </checkstyle>
     </target>
